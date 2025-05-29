@@ -16,3 +16,9 @@ add_library(Model Src/Model.cpp)
 
 add_library(Game Src/Game.cpp)
 target_link_libraries(Game PUBLIC Model)
+
+add_library(SFMLViewController Src/SFMLViewController.cpp)
+target_link_libraries(SFMLViewController PUBLIC SFML::Graphics)
+
+add_executable(Main Src/Main.cpp)
+target_link_libraries(Main PRIVATE Game SFMLViewController)

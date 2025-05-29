@@ -10,9 +10,9 @@ struct View {
 
     virtual void Stop() = 0;
 
-    virtual void DrawField(const Model::Field& field) = 0;
+    virtual void DrawField(const Model::FieldT& field) = 0;
 
-    virtual ~View = default;
+    virtual ~View() = default;
 };
 
 struct Controller {
@@ -24,13 +24,13 @@ struct Controller {
 
     bool ClickUpdated;
 
-    int X
-    int Y
+    int X;
+    int Y;
     };
 
     virtual MouseState GetMouseState() = 0;
 
-    virtual bool ShutDownPanding() = 0;
+    virtual bool ShutdownPending() = 0;
 
-    virtual ~Controller = default;
+    virtual ~Controller() = default;
 };

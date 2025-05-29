@@ -12,8 +12,8 @@ long Game::GetTimeDiffMs(TimePoint t2, TimePoint t1) const {
   return std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 }
 
-Game::Game(Config config, std::unique_ptr<IView>&& view,
-           std::unique_ptr<IController>&& contr)
+Game::Game(Config config, std::unique_ptr<View>&& view,
+           std::unique_ptr<Controller>&& contr)
     : ViewPtr{std::move(view)}, ContrPtr{std::move(contr)}, Conf{config} {
   ModelPtr = std::make_unique<Model>(config.GridW, config.GridH);
   WSizeX = Conf.CellSizePx * Conf.GridW;
@@ -29,7 +29,7 @@ void Game::Run() {
   while (!ContrPtr->ShutdownPending()) {
     ViewPtr->DrawField(ModelPtr->GetState());
 
-    IController::MouseState mouse = ContrPtr->GetMouseState();
+    Controller::MouseState mouse = ContrPtr->GetMouseState();
 
     if (mouse.ClickUpdated && mouse.Click == mouse.Left) {
       size_t j = GetCellJ(mouse.X);

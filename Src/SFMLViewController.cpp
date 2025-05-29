@@ -97,7 +97,7 @@ void SFMLView::Stop() { Window->close(); }
 
 SFMLFactory::SFMLFactory() : Window{std::make_shared<sf::RenderWindow>()} {}
 
-std::unique_ptr<IView> SFMLFactory::CreateView() {
+std::unique_ptr<View> SFMLFactory::CreateView() {
   return std::make_unique<SFMLView>(Window);
 }
 

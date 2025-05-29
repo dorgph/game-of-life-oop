@@ -10,19 +10,21 @@ class Game {
     public:
     struct Config {
 
-        size_t GridW
+        size_t GridW;
 
-        size_t GridH
+        size_t GridH;
 
-        size_t UpdatePeriod
+        size_t CellSizePx;
+
+        size_t UpdatePeriod;
     };
     private:
 
-    std::unique_prt<Model> ModelPtr;
+    std::unique_ptr<Model> ModelPtr;
 
     std::unique_ptr<View> ViewPtr;
 
-    std::unique_ptr<Controller> ControllerPtr;
+    std::unique_ptr<Controller> ContrPtr;
 
     Config Conf;
 
@@ -32,18 +34,18 @@ class Game {
 
     private:
 
-    size_t GetCelli(int y) const;
+    size_t GetCellI(int y) const;
 
-    size_t GetCellj(int x) const;
+    size_t GetCellJ(int x) const;
 
     TimePoint GetTime() const;
 
-    long GetTimeDiffMs(TimePoint t2, Timepoint t1) const;
+    long GetTimeDiffMs(TimePoint t2, TimePoint t1) const;
 
     public:
 
-    Game(Config config, std::unique_ptr<IView>&& view,
-       std::unique_ptr<IController>&& contr);
+    Game(Config config, std::unique_ptr<View>&& view,
+       std::unique_ptr<Controller>&& contr);
 
-    void Run()
+    void Run();
 };

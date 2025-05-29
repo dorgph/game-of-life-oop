@@ -1,5 +1,5 @@
 #pragma once
-#include "IViewController.hpp"
+#include "ViewController.hpp"
 #include "SFML/Graphics.hpp"
 
 class SFMLController : public Controller {

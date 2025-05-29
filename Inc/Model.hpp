@@ -22,7 +22,7 @@ class Model {
  
     static bool CalcCellValue (bool isLife, size_t nLife); 
 
-    void UpdateCell_NonBaundary(int i, int j);
+    void UpdateCell_NonBoundary(int i, int j);
 
     void UpdateCell_Boundary(int i, int j);
 
