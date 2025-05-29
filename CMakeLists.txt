@@ -3,6 +3,13 @@ project(game-of-life CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include(FetchContent)
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 3.0.1
+    )
+FetchContent_MakeAvailable(SFML)
+
 include_directories(Inc/)
 
 add_library(Model Src/Model.cpp)
