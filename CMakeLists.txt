@@ -6,3 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(Inc/)
 
 add_library(Model Src/Model.cpp)
+
+add_library(Game Src/Game.cpp)
+target_link_libraries(Game PUBLIC Model)
